@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.relation.RoleResult;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
  */
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/sys")
+@RequestMapping("/sys")
 public class RoleController extends BaseController {
 
     @Autowired
@@ -33,7 +32,7 @@ public class RoleController extends BaseController {
 
     //添加角色
     @RequestMapping(value = "/role", method = RequestMethod.POST)
-    public Result add(@RequestBody Role role) throws Exception {
+    public Result add(@RequestBody Role role)  {
         role.setCompanyId(companyId);
         roleService.save(role);
         return new Result(ResultCode.SUCCESS);

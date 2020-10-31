@@ -6,7 +6,6 @@ import com.ihrm.common.entity.Result;
 import com.ihrm.common.entity.ResultCode;
 import com.ihrm.domain.system.User;
 import com.ihrm.system.service.UserService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +19,13 @@ import java.util.Map;
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/sys")
+@RequestMapping(value = "/sys")
 public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
 
-    //查询
+    //查询企业的部门列表
     @RequestMapping(value = "/user",method = RequestMethod.GET)
     public Result findAll(int page, int size, @RequestParam Map map){
         map.put("companyId",companyId);
